@@ -10,6 +10,7 @@ public class Fighter_Spawn : MonoBehaviour
     private int O_random;
     private Vector3[] pos;
     private Quaternion[] rot;
+    [SerializeField] private float Time;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,7 @@ public class Fighter_Spawn : MonoBehaviour
         {
             B_random = Random.Range(0, 5);
             Instantiate(BasicPattern[B_random]);
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(Time);
         }
     }   
     IEnumerator SpawnOther()
@@ -64,7 +65,7 @@ public class Fighter_Spawn : MonoBehaviour
               
             }
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(Time);
         }
     }
 }

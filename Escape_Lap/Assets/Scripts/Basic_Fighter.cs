@@ -9,11 +9,12 @@ public class Basic_Fighter : MonoBehaviour
     [SerializeField] protected float Speed;
     [SerializeField] private float Hp;
     [SerializeField] private float Damage;
+    [SerializeField] protected float BulletSpeed;
     [SerializeField] private GameObject Player;
     [SerializeField] protected GameObject Bullet;
-    
+
     // Start is called before the first frame update
-    void Start()
+    virtual public void Start()
     {
         rd = gameObject.GetComponent<Rigidbody2D>();
         tr = gameObject.GetComponent<Transform>();
@@ -41,8 +42,10 @@ public class Basic_Fighter : MonoBehaviour
     {
         while(true)
         {
-            Instantiate(Bullet, tr);
-            yield return new WaitForSeconds(1.0f);
+            GameObject bulletObject = Instantiate(Bullet, tr);
+            bulletObject.GetComponent<Bullet>().Move();
+
+            yield return new WaitForSeconds(BulletSpeed);
         }
     }
     void Attack()
@@ -61,21 +64,21 @@ public class Basic_Fighter : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            Attack(); // 플레이어hp가져와서 줄이기
-        }
+        //if (collision.CompareTag("Player"))
+        //{
+        //    Attack(); // 플레이어hp가져와서 줄이기
+        //}
 
         if (collision.CompareTag("Delete")) //범위 밖으로 나갔을 때 삭제
         {
             Destroy(this.gameObject);
         }
-        if (collision.CompareTag("PlayerBullet")) //플레이어 총알에맞았을때
-        {
-            Hp--; //플레이어 데미지 가져와서 줄이기
-            Delete();
+        //if (collision.CompareTag("PlayerBullet")) //플레이어 총알에맞았을때
+        //{
+        //    Hp--; //플레이어 데미지 가져와서 줄이기
+        //    Delete();
 
-        }
+        //}
 
     }
 

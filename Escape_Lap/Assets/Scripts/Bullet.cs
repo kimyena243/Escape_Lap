@@ -6,13 +6,18 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody2D rd;
     public float Speed;
-    // Start is called before the first frame update
-    void Start()
+
+    public void Move()
     {
         rd = gameObject.GetComponent<Rigidbody2D>();
         rd.AddForce(Vector2.down * Speed);
     }
 
+    public void CircleMove(Vector3 direction, float speed)
+    {
+        rd = GetComponent<Rigidbody2D>();
+        rd.AddForce(direction * speed, ForceMode2D.Impulse);
+    }
     // Update is called once per frame
     void Update()
     {

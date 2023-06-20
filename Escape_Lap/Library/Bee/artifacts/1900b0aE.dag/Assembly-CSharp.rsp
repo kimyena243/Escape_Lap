@@ -376,6 +376,7 @@
 "Assets/Scripts/Basic_Fighter.cs"
 "Assets/Scripts/Basic_M_Fighter.cs"
 "Assets/Scripts/Bullet.cs"
+"Assets/Scripts/CircleBullet.cs"
 "Assets/Scripts/Fighter_Spawn.cs"
 "Assets/Scripts/Stun_Fighter.cs"
 "Assets/Scripts/Stun_M_Fighter.cs"
