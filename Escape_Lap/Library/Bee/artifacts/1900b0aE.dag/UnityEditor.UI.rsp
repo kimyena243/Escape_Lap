@@ -120,6 +120,7 @@
 -define:PACKAGE_ANIMATION
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Asset/HardLight2D/Scripts/HardLight2D.dll"
 -r:"C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll"
 -r:"C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll"
 -r:"C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll"
