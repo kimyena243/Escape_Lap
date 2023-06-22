@@ -16,10 +16,16 @@ public class MapMove : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Playing)
+            mapMove();
+    }
+
+    private void mapMove()
+    {
         transform.position += dir * speed * Time.deltaTime;
         if (transform.position.y < -scrollRange)
         {
-            transform.position = target.position + Vector3.up * scrollRange;
+            transform.position = new Vector3(transform.position.x, target.position.y, transform.position.z) + Vector3.up * scrollRange;
         }
     }
 }

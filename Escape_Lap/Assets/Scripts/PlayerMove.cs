@@ -17,10 +17,11 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        Move();
+        if (GameManager.Playing)
+            Move();
     }
 
-    void Move()
+    private void Move()
     {
         if (transform.position.y < 4.3f)
             if (Input.GetKey(KeyCode.W))

@@ -21,6 +21,7 @@ public class PBulletMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + speed * dir * Time.deltaTime);
+        if (GameManager.Playing)
+            rb.MovePosition(rb.position + speed * dir * Time.deltaTime);
     }
 }

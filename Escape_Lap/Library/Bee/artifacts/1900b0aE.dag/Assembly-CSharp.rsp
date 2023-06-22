@@ -375,10 +375,12 @@
 "Assets/Asset/HardLight2D/Demo/DemoScripts/MeshCopy.cs"
 "Assets/Asset/HardLight2D/Demo/DemoScripts/PolyWobbler.cs"
 "Assets/Asset/HardLight2D/Demo/DemoScripts/Speen.cs"
+"Assets/Scripts/GameManager.cs"
 "Assets/Scripts/MapMove.cs"
 "Assets/Scripts/PBulletMove.cs"
 "Assets/Scripts/PlayerAttack.cs"
 "Assets/Scripts/PlayerMove.cs"
+"Assets/Scripts/ProgressBar.cs"
 -langversion:9.0
 
 /deterministic

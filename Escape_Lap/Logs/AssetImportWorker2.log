@@ -15,7 +15,7 @@ C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-59630
+62285
 Successfully changed project path to: C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap
 C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -63,89 +63,89 @@ Initialize mono
 Mono path[0] = 'D:/unity/2021.3.5f1/Editor/Data/Managed'
 Mono path[1] = 'D:/unity/2021.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/unity/2021.3.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56488
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56376
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/unity/2021.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004044 seconds.
+Registered in 0.004253 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 73.99 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 93.32 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.616 seconds
+- Completed reload, in  0.675 seconds
 Domain Reload Profiling:
-	ReloadAssembly (616ms)
-		BeginReloadAssembly (89ms)
+	ReloadAssembly (676ms)
+		BeginReloadAssembly (87ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (397ms)
-			LoadAssemblies (88ms)
+		EndReloadAssembly (460ms)
+			LoadAssemblies (86ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (97ms)
+			SetupTypeCache (106ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (21ms)
-			SetupLoadedEditorAssemblies (234ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (279ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (8ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (74ms)
+				RefreshPlugins (93ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (107ms)
-				ProcessInitializeOnLoadMethodAttributes (46ms)
+				ProcessInitializeOnLoadAttributes (123ms)
+				ProcessInitializeOnLoadMethodAttributes (53ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.011133 seconds.
+Registered in 0.015779 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\user\Documents\GitHub\Escape_Lap\Escape_Lap\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\user\Documents\GitHub\Escape_Lap\Escape_Lap\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 76.02 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 77.44 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.062 seconds
+- Completed reload, in  1.049 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1063ms)
-		BeginReloadAssembly (118ms)
+	ReloadAssembly (1049ms)
+		BeginReloadAssembly (108ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (23ms)
-		EndReloadAssembly (830ms)
-			LoadAssemblies (110ms)
+			CreateAndSetChildDomain (20ms)
+		EndReloadAssembly (846ms)
+			LoadAssemblies (101ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (210ms)
+			SetupTypeCache (214ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (50ms)
-			SetupLoadedEditorAssemblies (427ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (446ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (2ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (76ms)
-				BeforeProcessingInitializeOnLoad (95ms)
-				ProcessInitializeOnLoadAttributes (205ms)
-				ProcessInitializeOnLoadMethodAttributes (45ms)
+				RefreshPlugins (78ms)
+				BeforeProcessingInitializeOnLoad (96ms)
+				ProcessInitializeOnLoadAttributes (217ms)
+				ProcessInitializeOnLoadMethodAttributes (49ms)
 				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 1.42 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 1.61 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4066 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 45 unused Assets / (222.4 KB). Loaded Objects now: 4516.
-Memory consumption went from 155.7 MB to 155.5 MB.
-Total: 3.877800 ms (FindLiveObjects: 0.303900 ms CreateObjectMapping: 0.092400 ms MarkObjects: 3.327700 ms  DeleteObjects: 0.152900 ms)
+Unloading 4068 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 45 unused Assets / (222.4 KB). Loaded Objects now: 4520.
+Memory consumption went from 155.9 MB to 155.7 MB.
+Total: 3.647200 ms (FindLiveObjects: 0.298000 ms CreateObjectMapping: 0.188400 ms MarkObjects: 3.002100 ms  DeleteObjects: 0.157700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -157,6 +157,24 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 399132.878493 seconds.
+  path: Assets/Charactors/Player/Item/플레이어아이템_효과ver.png
+  artifactKey: Guid(cefcc653dd454a5408e46ee5a622c0ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Charactors/Player/Item/플레이어아이템_효과ver.png using Guid(cefcc653dd454a5408e46ee5a622c0ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbba2058016d6ec6731c8f7fffdd1e2b') in 0.149337 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.565788 seconds.
+  path: Assets/Maps/Stage 03/3스테이지 바위 2.png
+  artifactKey: Guid(1d47dda4a2aa4f944b8c3d5b6ee7e208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Maps/Stage 03/3스테이지 바위 2.png using Guid(1d47dda4a2aa4f944b8c3d5b6ee7e208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dea0b9cb94e57bb979e79fab1caef80') in 0.027846 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Maps/Stage 03/3스테이지 행성 3.png
+  artifactKey: Guid(34a6dfc7a029e7e4e8a7ec7f366a70f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Maps/Stage 03/3스테이지 행성 3.png using Guid(34a6dfc7a029e7e4e8a7ec7f366a70f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a33c53b8a280946b693c3c246302fc05') in 0.104732 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting
