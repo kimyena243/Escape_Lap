@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5869022714954146015}
   - component: {fileID: 5869022714954146012}
   - component: {fileID: 820836039377404670}
+  - component: {fileID: 5785510292015123136}
+  - component: {fileID: 3030313040967881791}
   m_Layer: 0
   m_Name: M_Stun
   m_TagString: Untagged
@@ -97,8 +99,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9aca8f557ca7314da7e784a0530e9ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
-  Hp: 0
-  Damage: 0
-  Player: {fileID: 0}
-  Bullet: {fileID: 0}
+  Speed: 5
+  Hp: 1
+  Damage: 1
+  BulletSpeed: 1
+  Bullet: {fileID: 4526633739247234724, guid: 2f6154f07febf3141bba7a2650b30783, type: 3}
+  targetPosition: {x: 0, y: 0}
+  StunFull: {fileID: 7116666316573306512, guid: de68fcc55f681304fa7183be7fd9e01e, type: 3}
+  fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!50 &5785510292015123136
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5869022714954146594}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &3030313040967881791
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5869022714954146594}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.005358219, y: -0.04577899}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20, y: 20}
+    newSize: {x: 20, y: 20}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.420232, y: 9.074011}
+  m_EdgeRadius: 0

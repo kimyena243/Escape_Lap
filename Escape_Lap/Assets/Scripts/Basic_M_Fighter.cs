@@ -33,8 +33,8 @@ public class Basic_M_Fighter : Basic_Fighter
                 // 총알 생성
                 GameObject bullet = Instantiate(Bullet, spawnPosition, Quaternion.identity);
                 bullet.transform.SetParent(transform); // 스폰 오브젝트의 자식으로 설정
-                //bullet.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); // Scale 값을 (1, 1, 1)로 설정
-                bullet.transform.localScale = Vector3.one; // Scale 값을 (1, 1, 1)로 설정
+                bullet.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); // Scale 값을 (1, 1, 1)로 설정
+                //bullet.transform.localScale = Vector3.one; // Scale 값을 (1, 1, 1)로 설정
                 bullet.GetComponent<Bullet>().CircleMove(bulletDirection, bulletSpeed);
             }
 

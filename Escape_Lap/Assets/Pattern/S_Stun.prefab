@@ -100,5 +100,8 @@ MonoBehaviour:
   Speed: 0
   Hp: 0
   Damage: 0
-  Player: {fileID: 0}
+  BulletSpeed: 0
   Bullet: {fileID: 0}
+  StunCircle: {fileID: 4696842777607688239, guid: efc054b93a8d0aa41aa7960c49c161eb, type: 3}
+  spawnRangeX: 2.5
+  spawnRangeY: 5

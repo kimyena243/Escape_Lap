@@ -18,11 +18,7 @@ public class Bullet : MonoBehaviour
         rd = GetComponent<Rigidbody2D>();
         rd.AddForce(direction * speed, ForceMode2D.Impulse);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,10 +28,5 @@ public class Bullet : MonoBehaviour
            
 
         }
-
-    
-
-
-
     }
 }

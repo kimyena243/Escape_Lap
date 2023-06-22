@@ -10,12 +10,19 @@ public class Basic_Fighter : MonoBehaviour
     [SerializeField] private float Hp;
     [SerializeField] private float Damage;
     [SerializeField] protected float BulletSpeed;
-    [SerializeField] private GameObject Player;
     [SerializeField] protected GameObject Bullet;
 
     // Start is called before the first frame update
     virtual public void Start()
     {
+        ////플레이어 찾기 안필요할지도
+        //GameObject Player = GameObject.FindWithTag("Player");
+        //if(Player!=null)
+        //{
+        //    PlayerScript playerScript = Player.GetComponent<PlayerScript>();
+        //}
+
+    
         rd = gameObject.GetComponent<Rigidbody2D>();
         tr = gameObject.GetComponent<Transform>();
         Move();
@@ -48,12 +55,7 @@ public class Basic_Fighter : MonoBehaviour
             yield return new WaitForSeconds(BulletSpeed);
         }
     }
-    void Attack()
-    {
-        Debug.Log("플레이어랑 충돌");
-       
-        
-    }
+
 
     void Delete()
     {
@@ -64,10 +66,6 @@ public class Basic_Fighter : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.CompareTag("Player"))
-        //{
-        //    Attack(); // 플레이어hp가져와서 줄이기
-        //}
 
         if (collision.CompareTag("Delete")) //범위 밖으로 나갔을 때 삭제
         {
@@ -75,11 +73,23 @@ public class Basic_Fighter : MonoBehaviour
         }
         //if (collision.CompareTag("PlayerBullet")) //플레이어 총알에맞았을때
         //{
-        //    Hp--; //플레이어 데미지 가져와서 줄이기
+        //    PlayerBulletScript playerBulletScript = collision.gameObject.GetComponent<PlayerBulletScript>();
+        //    Hp -= playerBulletScript.Damage; //총알 데미지 변수 가져와서 줄이기
         //    Delete();
 
         //}
+        if (collision.CompareTag("Player")) //플레이어랑 충돌 시 데미지 가하기
+        {
+            Debug.Log("충돌");
 
+            PlayerScript playerScript = collision.gameObject.GetComponent<PlayerScript>();
+            if (playerScript != null)
+            {
+                playerScript.Hp -= Damage; // 플레이어의 HP를 감소시킴
+            }
+           
+
+        }
     }
 
 

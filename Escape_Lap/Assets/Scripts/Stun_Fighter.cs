@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class Stun_Fighter : Basic_Fighter
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject StunCircle;
+    [SerializeField] private float spawnRangeX = 2.5f; 
+    [SerializeField] private float spawnRangeY = 5f; 
+   
 
     // Update is called once per frame
-    void Update()
+    public override void ShootStart() // 기본 공격 
+    {
+        StartCoroutine(Stun());
+
+
+    }
+    IEnumerator Stun()
     {
         
+        Vector3 randomPosition = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0f, Random.Range(-spawnRangeY, spawnRangeY));
+        Instantiate(StunCircle, randomPosition, Quaternion.identity);
+        StartCoroutine(Delete());
+        yield return null;
+    }
+    public override void Move() //이동 x
+    {
+        transform.position = transform.position;
+    }
+    IEnumerator Delete()
+    {
+
+        yield return new WaitForSeconds(2.0f);
+        Destroy(this.gameObject);
+       
     }
 }

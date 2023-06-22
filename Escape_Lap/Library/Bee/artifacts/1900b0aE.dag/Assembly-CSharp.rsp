@@ -375,9 +375,12 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Basic_Fighter.cs"
 "Assets/Scripts/Basic_M_Fighter.cs"
+"Assets/Scripts/Boss_Fighter.cs"
 "Assets/Scripts/Bullet.cs"
-"Assets/Scripts/CircleBullet.cs"
 "Assets/Scripts/Fighter_Spawn.cs"
+"Assets/Scripts/Lazer.cs"
+"Assets/Scripts/PlayerScript.cs"
+"Assets/Scripts/StunCircle.cs"
 "Assets/Scripts/Stun_Fighter.cs"
 "Assets/Scripts/Stun_M_Fighter.cs"
 -langversion:9.0
