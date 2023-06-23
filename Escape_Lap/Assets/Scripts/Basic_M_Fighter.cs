@@ -16,7 +16,7 @@ public class Basic_M_Fighter : Basic_Fighter
     }
     IEnumerator Shoot()
     {
-        Debug.Log("µÅ³ª?");
+      
         while (true)
         {
 

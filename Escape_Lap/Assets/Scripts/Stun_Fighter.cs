@@ -10,7 +10,7 @@ public class Stun_Fighter : Basic_Fighter
    
 
     // Update is called once per frame
-    public override void ShootStart() // 기본 공격 
+    public override void ShootStart() //  공격 
     {
         StartCoroutine(Stun());
 
