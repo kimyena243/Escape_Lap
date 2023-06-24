@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 50
-  Hp: 20
+  Hp: 5
   Damage: 0
   BulletSpeed: 5
-  Player: {fileID: 0}
   Bullet: {fileID: 4526633739247234724, guid: 2f6154f07febf3141bba7a2650b30783, type: 3}
+  Item: {fileID: 4570480275565304040, guid: 8acbde492ff831f42a71ac3802de3476, type: 3}

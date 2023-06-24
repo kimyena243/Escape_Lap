@@ -8,8 +8,16 @@ public class HomingMissile : MonoBehaviour
     private float screenY = 5.0f;
     private GameObject target;
     [SerializeField]private float speed = 5f; // 이동 속도
-    
-    private void Update()
+    private void Start()
+    {
+        StartCoroutine(Delete());
+    }
+    IEnumerator Delete()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(this.gameObject);
+    }
+        private void Update()
     {
         target = GameObject.FindGameObjectWithTag("Player");
 

@@ -103,6 +103,7 @@ MonoBehaviour:
   Damage: 1
   BulletSpeed: 1
   Bullet: {fileID: 4526633739247234724, guid: 2f6154f07febf3141bba7a2650b30783, type: 3}
+  Item: {fileID: 4570480275565304040, guid: 8acbde492ff831f42a71ac3802de3476, type: 3}
 --- !u!1001 &3153352587043099662
 PrefabInstance:
   m_ObjectHideFlags: 0

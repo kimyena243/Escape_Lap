@@ -21,16 +21,16 @@ public class Stun_Fighter : Basic_Fighter
         
         Vector3 randomPosition = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0f, Random.Range(-spawnRangeY, spawnRangeY));
         Instantiate(StunCircle, randomPosition, Quaternion.identity);
-        StartCoroutine(Delete());
+        StartCoroutine(S_Delete());
         yield return null;
     }
     public override void Move() //¿Ãµø x
     {
         transform.position = transform.position;
     }
-    IEnumerator Delete()
-    {
 
+    IEnumerator S_Delete()
+    {
         yield return new WaitForSeconds(2.0f);
         Destroy(this.gameObject);
        

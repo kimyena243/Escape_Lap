@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 221097390569383091}
   - component: {fileID: 4709089077770791649}
   - component: {fileID: 638818759479784722}
+  - component: {fileID: -2313607645297424218}
   m_Layer: 0
   m_Name: Boss_L
   m_TagString: Untagged
@@ -92,7 +93,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5452006046311039434}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -294,3 +295,16 @@ PolygonCollider2D:
       - {x: -8.61, y: -6.45}
       - {x: -8.53, y: -6.2999997}
       - {x: -8.4, y: -6.0499997}
+--- !u!114 &-2313607645297424218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5452006046311039434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35c54f5680eb414886806c3211f76c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 50

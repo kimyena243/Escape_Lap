@@ -5,23 +5,25 @@ using UnityEngine;
 public class Stun_M_Fighter : Basic_Fighter
 {
     [SerializeField] private Vector2 targetPosition = new Vector2(0f, 0f);
-    [SerializeField] private GameObject StunFull;
+    [SerializeField] private bool moveScan = false;
     private Vector2 startPosition; // 시작 좌표
     private bool shouldMove = true; // 움직임 허용 여부를 나타내는 변수
-    private SpriteRenderer spriteRenderer;
-   
+    private SpriteRenderer spriteRenderer1;
+    private SpriteRenderer spriteRenderer2;
+    private GameObject Player;
+    private PlayerMove playerMove;
     private float fadeDuration = 0.5f;
     [SerializeField] private AnimationCurve fadeCurve;
     private int repeatCount = 3;
 
     public override void Start()
     {
-        ////플레이어 찾기 안필요할지도
-        //GameObject Player = GameObject.FindWithTag("Player");
-        //if(Player!=null)
-        //{
-        //    PlayerScript playerScript = Player.GetComponent<PlayerScript>();
-        //}
+        //플레이어 찾기 안필요할지도
+        Player = GameObject.FindWithTag("Player");
+        if (Player != null)
+        {
+            playerMove = Player.GetComponent<PlayerMove>();
+        }
 
         startPosition = transform.position;
         rd = gameObject.GetComponent<Rigidbody2D>();
@@ -31,24 +33,53 @@ public class Stun_M_Fighter : Basic_Fighter
 
     }
 
-    // Update is called once per frame
-    private void StunStart() // 기본 공격 
+    public override void Update()
     {
-        GameObject BackGround = GameObject.FindWithTag("BackGround");
-        spriteRenderer = BackGround.GetComponent<SpriteRenderer>();
-        
-
-        StartCoroutine(Stun());
-
+        Delete();
+        Die();
+        if(moveScan == true)
+        {
+            if (playerMove.pos.x != 0 || playerMove.pos.y != 0 || playerMove.pos.z != 0)
+                playerMove.isMove = false;
+        }
     }
 
-    private IEnumerator Stun()
+    public override void Die()
+    {
+        if (Hp <= 0)
+        {
+            ItemDrop();
+            spriteRenderer1.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            spriteRenderer2.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            Destroy(this.gameObject);
+
+            //아이템
+        }
+    }
+
+
+    // Update is called once per frame
+    private void StunStart() 
+    {
+        GameObject background1 = GameObject.FindWithTag("BackGround");
+        spriteRenderer1 = background1.GetComponent<SpriteRenderer>();
+
+      
+        GameObject background2 = GameObject.FindWithTag("BackGround2");
+        spriteRenderer2 = background2.GetComponent<SpriteRenderer>();
+
+        StartCoroutine(Warning());
+
+    }
+   
+    private IEnumerator Warning()
     {
         for (int i = 0; i < repeatCount; i++)
         {
             float elapsedTime = 0f;
-            Color startColor = spriteRenderer.color;
+            Color startColor = spriteRenderer1.color;
             Color targetColor = new Color(startColor.r, 0.5f, 0.5f, 1.0f);
+            
 
             while (elapsedTime < fadeDuration)
             {
@@ -58,7 +89,8 @@ public class Stun_M_Fighter : Basic_Fighter
                 float curveValue = fadeCurve.Evaluate(t);
 
                 Color currentColor = Color.Lerp(startColor, targetColor, curveValue);
-                spriteRenderer.color = currentColor;
+                spriteRenderer1.color = currentColor;
+                spriteRenderer2.color = currentColor;
 
                 yield return null;
             }
@@ -74,19 +106,28 @@ public class Stun_M_Fighter : Basic_Fighter
                 float curveValue = fadeCurve.Evaluate(t);
 
                 Color currentColor = Color.Lerp(targetColor, startColor, curveValue);
-                spriteRenderer.color = currentColor;
+                spriteRenderer1.color = currentColor;
+                spriteRenderer2.color = currentColor;
 
                 yield return null;
             }
 
-            spriteRenderer.color = startColor; // 원래 색상으로 설정
+            spriteRenderer1.color = startColor; // 원래 색상으로 설정
+            spriteRenderer2.color = startColor; // 원래 색상으로 설정
 
-            yield return new WaitForSecondsRealtime(0.5f); // 1초 대기
+            yield return new WaitForSecondsRealtime(0.5f);
+
         }
 
-        Instantiate(StunFull, transform.position, Quaternion.identity);
+        moveScan = true;
+        Debug.Log("시작");
+        yield return new WaitForSecondsRealtime(1f);
+        Debug.Log("끝");
+        moveScan = false;
+        yield return new WaitForSecondsRealtime(3f);
+        playerMove.isMove = true;
         Destroy(this.gameObject);
-
+       
     }
 
     public override void Move()

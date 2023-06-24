@@ -7,11 +7,13 @@ public class Basic_Fighter : MonoBehaviour
     protected Rigidbody2D rd;
     protected Transform tr;
     [SerializeField] protected float Speed;
-    [SerializeField] private float Hp;
-    [SerializeField] private float Damage;
+    [SerializeField] protected float Hp;
+    [SerializeField] protected float Damage;
     [SerializeField] protected float BulletSpeed;
     [SerializeField] protected GameObject Bullet;
-
+    [SerializeField] protected GameObject Item;
+    private float screenX = 3.0f;
+    private float screenY = 10.0f;
     // Start is called before the first frame update
     virtual public void Start()
     {
@@ -22,19 +24,22 @@ public class Basic_Fighter : MonoBehaviour
         //    PlayerScript playerScript = Player.GetComponent<PlayerScript>();
         //}
 
-    
+
         rd = gameObject.GetComponent<Rigidbody2D>();
         tr = gameObject.GetComponent<Transform>();
         Move();
         ShootStart();
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    virtual public void Update()
     {
         Delete();
+        Die();
+
     }
+
     virtual public void Move() // 기본 이동 위-> 아래
     {
         rd.AddForce(Vector2.down * Speed);
@@ -43,11 +48,11 @@ public class Basic_Fighter : MonoBehaviour
     {
         StartCoroutine(Shoot());
 
-        
+
     }
     IEnumerator Shoot()
     {
-        while(true)
+        while (true)
         {
             GameObject bulletObject = Instantiate(Bullet, tr);
             bulletObject.GetComponent<Bullet>().Move();
@@ -56,10 +61,39 @@ public class Basic_Fighter : MonoBehaviour
         }
     }
 
+    protected void ItemDrop()
+    {
+        int randomNum = Random.Range(1, 11);
+       
+        if (randomNum == 1 || randomNum == 2)
+        {
+            Debug.Log(randomNum);
+            GameObject item = Instantiate(Item, tr);
+            item.transform.parent = null;
+            item.transform.localScale = Vector3.one; // Scale 값을 (1, 1, 1)로 설정
+        }
 
-    void Delete()
+
+    }
+    virtual public void Die()
     {
         if (Hp <= 0)
+        {
+            ItemDrop();
+
+            Destroy(this.gameObject);
+
+            //아이템
+        }
+    }
+    protected void Delete()
+    {
+        // 총알의 현재 위치
+        Vector3 currentPosition = transform.position;
+
+        // 화면 밖으로 벗어난 경우 제거
+        if (currentPosition.x< -screenX || currentPosition.x> screenX ||
+            currentPosition.y< -screenY || currentPosition.y> screenY)
         {
             Destroy(this.gameObject);
         }
@@ -67,17 +101,14 @@ public class Basic_Fighter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("Delete")) //범위 밖으로 나갔을 때 삭제
+        if (collision.CompareTag("PlayerBullet")) //플레이어 총알에맞았을때
         {
-            Destroy(this.gameObject);
-        }
-        //if (collision.CompareTag("PlayerBullet")) //플레이어 총알에맞았을때
-        //{
-        //    PlayerBulletScript playerBulletScript = collision.gameObject.GetComponent<PlayerBulletScript>();
-        //    Hp -= playerBulletScript.Damage; //총알 데미지 변수 가져와서 줄이기
-        //    Delete();
+            //PlayerBulletScript playerBulletScript = collision.gameObject.GetComponent<PlayerBulletScript>();
+            //Hp -= playerBulletScript.Damage; //총알 데미지 변수 가져와서 줄이기
+            Hp -= 1; //총알 데미지 변수 가져와서 줄이기
+           
 
-        //}
+        }
         if (collision.CompareTag("Player")) //플레이어랑 충돌 시 데미지 가하기
         {
             Debug.Log("충돌");

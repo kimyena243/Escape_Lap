@@ -75,23 +75,23 @@ public class StunCircle : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("충돌");
-
-            PlayerScript playerScript = collision.gameObject.GetComponent<PlayerScript>();
-            if (playerScript != null)
+           
+            
+            PlayerMove playerMove = collision.gameObject.GetComponent<PlayerMove>();
+            if (playerMove != null)
             {
-                playerScript.isMove = false; // 움직임 false
+                playerMove.isMove = false; // 움직임 false
 
-                StartCoroutine(Delete(playerScript));
+                StartCoroutine(Delete(playerMove));
             }
 
 
         }
     }
-    private IEnumerator Delete(PlayerScript playerScript)
+    private IEnumerator Delete(PlayerMove playerMove)
     {
         yield return new WaitForSeconds(2.0f);
-        playerScript.isMove = true;
+        playerMove.isMove = true;
         Destroy(this.gameObject);
     }
 

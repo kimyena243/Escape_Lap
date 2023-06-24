@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Delete
   - BackGround
+  - BackGround2
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

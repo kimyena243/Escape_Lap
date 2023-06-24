@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
-  Hp: 0
+  Hp: 10
   Damage: 0
   BulletSpeed: 0
   Bullet: {fileID: 0}
