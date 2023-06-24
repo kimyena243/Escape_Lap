@@ -118,7 +118,7 @@
 -define:TIMELINE_FRAMEACCURATE
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"Assets/Asset/HardLight2D/Scripts/HardLight2D.dll"
+-r:"Assets/GeunJi/Asset/HardLight2D/Scripts/HardLight2D.dll"
 -r:"C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll"
 -r:"C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll"
 -r:"C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll"
@@ -340,6 +340,7 @@
 -r:"D:/unity/2021.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+-analyzer:"Assets/GeunJi/Asset/HardLight2D/Scripts/HardLight2D.dll"
 "Library/PackageCache/com.unity.timeline@1.6.4/Runtime/Activation/ActivationMixerPlayable.cs"
 "Library/PackageCache/com.unity.timeline@1.6.4/Runtime/Activation/ActivationPlayableAsset.cs"
 "Library/PackageCache/com.unity.timeline@1.6.4/Runtime/Activation/ActivationTrack.cs"

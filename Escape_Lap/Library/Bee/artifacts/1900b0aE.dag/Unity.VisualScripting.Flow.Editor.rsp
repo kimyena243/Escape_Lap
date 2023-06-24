@@ -117,7 +117,7 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"Assets/Asset/HardLight2D/Scripts/HardLight2D.dll"
+-r:"Assets/GeunJi/Asset/HardLight2D/Scripts/HardLight2D.dll"
 -r:"C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll"
 -r:"C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll"
 -r:"C:/Users/user/Documents/GitHub/Escape_Lap/Escape_Lap/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll"
@@ -349,6 +349,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+-analyzer:"Assets/GeunJi/Asset/HardLight2D/Scripts/HardLight2D.dll"
 "Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Flow/Acknowledgements/Acknowledgement_NCalc.cs"
 "Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Flow/Analytics/FlowMacroSavedEvent.cs"
 "Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Flow/BoltFlowNameUtility.cs"
