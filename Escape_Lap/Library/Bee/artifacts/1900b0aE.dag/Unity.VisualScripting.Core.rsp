@@ -342,7 +342,6 @@
 -r:"D:/unity/2021.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
--analyzer:"Assets/GeunJi/Asset/HardLight2D/Scripts/HardLight2D.dll"
 "Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Cloning/Cloner.cs"
 "Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Cloning/Cloners/AnimationCurveCloner.cs"
 "Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Cloning/Cloners/ArrayCloner.cs"
