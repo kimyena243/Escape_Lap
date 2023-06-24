@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/yena/Scenes/yena.unity
+- path: Assets/Scenes/yena.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
