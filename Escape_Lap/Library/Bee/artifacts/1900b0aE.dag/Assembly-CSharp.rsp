@@ -376,6 +376,8 @@
 "Assets/Asset/HardLight2D/Demo/DemoScripts/PolyWobbler.cs"
 "Assets/Asset/HardLight2D/Demo/DemoScripts/Speen.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/Item.cs"
+"Assets/Scripts/LobyManager.cs"
 "Assets/Scripts/MapMove.cs"
 "Assets/Scripts/PBulletMove.cs"
 "Assets/Scripts/PlayerAttack.cs"

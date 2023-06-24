@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public Vector3 Up = Vector3.up;
-    public Vector3 Dowm = Vector3.down;
-    public Vector3 Left = Vector3.left;
-    public Vector3 Right = Vector3.right;
+    public Vector3[] move = new Vector3[4] { Vector3.up, Vector3.down, Vector3.left, Vector3.right };
     public float speed;
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -23,25 +20,21 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
+        Vector3 pos = new Vector3(0.0f, 0.0f, 0.0f);
+
         if (transform.position.y < 4.3f)
             if (Input.GetKey(KeyCode.W))
-            {
-                transform.position += Up * speed;
-            }
+                pos = move[0] * speed;
         if (transform.position.x > -2.3f)
             if (Input.GetKey(KeyCode.A))
-            {
-                transform.position += Left * speed;
-            }
+                pos = move[2] * speed;
         if (transform.position.y > -4.3f)
             if (Input.GetKey(KeyCode.S))
-            {
-                transform.position += Dowm * speed;
-            }
+                pos = move[1] * speed;
         if (transform.position.x < 2.3f)
             if (Input.GetKey(KeyCode.D))
-            {
-                transform.position += Right * speed;
-            }
+                pos = move[3] * speed;
+
+        transform.position += pos;
     }
 }
