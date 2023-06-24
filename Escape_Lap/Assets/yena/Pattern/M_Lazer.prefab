@@ -104,6 +104,10 @@ MonoBehaviour:
   BulletSpeed: 1
   Bullet: {fileID: 4526633739247234724, guid: 2f6154f07febf3141bba7a2650b30783, type: 3}
   Item: {fileID: 4570480275565304040, guid: 8acbde492ff831f42a71ac3802de3476, type: 3}
+  image:
+  - {fileID: 21300000, guid: 7c70011366952f34a8d9a724706d3a88, type: 3}
+  - {fileID: 21300000, guid: 9d062c68bd277e94bab74e412853a2ce, type: 3}
+  - {fileID: 21300000, guid: 66b32fed125aaab4a9ac6150a560b777, type: 3}
 --- !u!1001 &3153352587043099662
 PrefabInstance:
   m_ObjectHideFlags: 0

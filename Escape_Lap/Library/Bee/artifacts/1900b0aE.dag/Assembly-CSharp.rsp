@@ -395,6 +395,7 @@
 "Assets/yena/Scripts/Lazer_Fighter.cs"
 "Assets/yena/Scripts/Parts.cs"
 "Assets/yena/Scripts/PlayerScript.cs"
+"Assets/yena/Scripts/Sound.cs"
 "Assets/yena/Scripts/StunCircle.cs"
 "Assets/yena/Scripts/Stun_Fighter.cs"
 "Assets/yena/Scripts/Stun_M_Fighter.cs"

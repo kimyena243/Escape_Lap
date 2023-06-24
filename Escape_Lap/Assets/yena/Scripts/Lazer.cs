@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Lazer : MonoBehaviour
 {
+    public AudioClip shoot;
+    private AudioSource audioPlay;
     private BoxCollider2D boxCollider;
     // Start is called before the first frame update
     void Start()
     {
         boxCollider = gameObject.GetComponent<BoxCollider2D>();
-        
+        audioPlay = GetComponent<AudioSource>();
         StartCoroutine(Shoot());
     }
 
@@ -20,7 +22,9 @@ public class Lazer : MonoBehaviour
     }
     IEnumerator Shoot()
     {
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.3f);
+        audioPlay.clip = shoot;
+        audioPlay.Play();
         boxCollider.enabled = true;
         StartCoroutine(Delete());
         StartCoroutine(Stop());

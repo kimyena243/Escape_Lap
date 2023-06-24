@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Basic_Fighter : MonoBehaviour
 {
     protected Rigidbody2D rd;
     protected Transform tr;
+    protected SpriteRenderer sr;
     [SerializeField] protected float Speed;
     [SerializeField] protected float Hp;
     [SerializeField] protected float Damage;
     [SerializeField] protected float BulletSpeed;
     [SerializeField] protected GameObject Bullet;
     [SerializeField] protected GameObject Item;
+    [SerializeField] private Sprite[] image;
+    private string currentSceneName;
     private float screenX = 3.0f;
     private float screenY = 10.0f;
     // Start is called before the first frame update
@@ -23,12 +26,27 @@ public class Basic_Fighter : MonoBehaviour
         //{
         //    PlayerScript playerScript = Player.GetComponent<PlayerScript>();
         //}
-
-
+        currentSceneName = SceneManager.GetActiveScene().name;
+        
         rd = gameObject.GetComponent<Rigidbody2D>();
         tr = gameObject.GetComponent<Transform>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
+
+        if (currentSceneName == "Stage01")
+        {
+            sr.sprite = image[0];
+        }
+        else if (currentSceneName == "Stage02")
+        {
+            sr.sprite = image[1];
+        }
+        else if (currentSceneName == "Stage03")
+        {
+            sr.sprite = image[2];
+        }
         Move();
         ShootStart();
+
 
     }
 

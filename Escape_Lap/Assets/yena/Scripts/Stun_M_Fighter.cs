@@ -14,6 +14,9 @@ public class Stun_M_Fighter : Basic_Fighter
     private PlayerMove playerMove;
     private float fadeDuration = 0.5f;
     [SerializeField] private AnimationCurve fadeCurve;
+    [SerializeField] private AudioClip stunAudio;
+    [SerializeField] private AudioClip alarmAudio;
+    private AudioSource audioPlay;
     private int repeatCount = 3;
 
     public override void Start()
@@ -26,6 +29,7 @@ public class Stun_M_Fighter : Basic_Fighter
         }
 
         startPosition = transform.position;
+        audioPlay = GetComponent<AudioSource>();
         rd = gameObject.GetComponent<Rigidbody2D>();
         tr = gameObject.GetComponent<Transform>();
         Move();
@@ -76,6 +80,8 @@ public class Stun_M_Fighter : Basic_Fighter
     {
         for (int i = 0; i < repeatCount; i++)
         {
+            audioPlay.clip = alarmAudio;
+            audioPlay.Play();
             float elapsedTime = 0f;
             Color startColor = spriteRenderer1.color;
             Color targetColor = new Color(startColor.r, 0.5f, 0.5f, 1.0f);
@@ -118,12 +124,14 @@ public class Stun_M_Fighter : Basic_Fighter
             yield return new WaitForSecondsRealtime(0.5f);
 
         }
-
+        audioPlay.clip = stunAudio;
         moveScan = true;
+        audioPlay.Play();
         Debug.Log("½ÃÀÛ");
         yield return new WaitForSecondsRealtime(1f);
         Debug.Log("³¡");
         moveScan = false;
+        audioPlay.Stop();
         yield return new WaitForSecondsRealtime(3f);
         playerMove.isMove = true;
         Destroy(this.gameObject);

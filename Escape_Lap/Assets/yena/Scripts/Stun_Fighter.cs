@@ -6,9 +6,8 @@ public class Stun_Fighter : Basic_Fighter
 {
     [SerializeField] private GameObject StunCircle;
     [SerializeField] private float spawnRangeX = 2.5f; 
-    [SerializeField] private float spawnRangeY = 5f; 
-   
-
+    [SerializeField] private float spawnRangeY = 5f;
+    
     // Update is called once per frame
     public override void ShootStart() //  АјАн 
     {

@@ -20,6 +20,11 @@ public class Boss_Fighter : Basic_Fighter
     [SerializeField] private bool isRush = false;
     [SerializeField] private bool isRushStop = false;
     [SerializeField] private float dashSpeed;
+    [SerializeField] private AudioClip rushAudio;
+    [SerializeField] private AudioClip shootAudio;
+    [SerializeField] private AudioClip exAudio;
+    private AudioSource audioPlay;
+
     enum BossState
     {
         Idle,
@@ -29,38 +34,7 @@ public class Boss_Fighter : Basic_Fighter
         HomingMissile
 
     }
-    IEnumerator RandomState()
-    {
-        
-        while (true)
-        {
-            randomNum = Random.Range(1, 11);
 
-            Debug.Log(randomNum);
-            if (randomNum >= 1 && randomNum <= 4)
-            { 
-                SetState(BossState.Attack); 
-            }
-            else if (randomNum >= 5 && randomNum <= 7)
-            {
-                SetState(BossState.HomingMissile);
-            }
-            else if (randomNum == 8 || randomNum == 9)
-            {
-                SetState(BossState.Spawn);
-            }
-            else if (randomNum == 10)
-            {
-                SetState(BossState.Rush );
-            }
-          
-
-            yield return new WaitForSeconds(stateChange);
-            
-
-        }
-
-    }
     public override void Start()
     {
         parts = new GameObject[transform.childCount];
@@ -72,7 +46,7 @@ public class Boss_Fighter : Basic_Fighter
         EnableCurrentChildCollider();
 
         rd = gameObject.GetComponent<Rigidbody2D>();
-    
+        audioPlay = GetComponent<AudioSource>();
         StartCoroutine(RandomState());
         StartCoroutine(StunSpawn());
     }
@@ -80,6 +54,9 @@ public class Boss_Fighter : Basic_Fighter
     {
         if (parts[currentChildIndex].activeSelf == false)
         {
+            audioPlay.clip = exAudio;
+            audioPlay.Play();
+
             // 현재 자식 오브젝트의 콜라이더 비활성화
             parts[currentChildIndex].GetComponent<PolygonCollider2D>().enabled = false;
 
@@ -88,7 +65,6 @@ public class Boss_Fighter : Basic_Fighter
 
             EnableCurrentChildCollider();
         }
-
 
         if( isRush == true)
         {
@@ -101,12 +77,6 @@ public class Boss_Fighter : Basic_Fighter
                 transform.Translate(Vector3.up * dashSpeed * Time.deltaTime);
             }
         }
-    }
-    IEnumerator BoolRushStop()
-    {
-        yield return new WaitForSeconds(2f);
-        isRushStop = false;
-
     }
     private void EnableCurrentChildCollider()
     {
@@ -136,7 +106,6 @@ public class Boss_Fighter : Basic_Fighter
             }
         }
     }
-   
     private void SetState(BossState newState)
     {
         currentState = newState;
@@ -157,20 +126,52 @@ public class Boss_Fighter : Basic_Fighter
             case BossState.HomingMissile://3
                 HomingMissilePattern();
                 break;
+        }
+    }
+    IEnumerator RandomState()
+    {
+
+        while (true)
+        {
+            randomNum = Random.Range(1, 11);
+
+            Debug.Log(randomNum);
+            if (randomNum >= 1 && randomNum <= 4)
+            {
+                SetState(BossState.Attack);
+            }
+            else if (randomNum >= 5 && randomNum <= 7)
+            {
+                SetState(BossState.HomingMissile);
+            }
+            else if (randomNum == 8 || randomNum == 9)
+            {
+                SetState(BossState.Spawn);
+            }
+            else if (randomNum == 10)
+            {
+                SetState(BossState.Rush);
+            }
+
+            yield return new WaitForSeconds(stateChange);
 
         }
+
     }
     private void AttackPattern()
     {
         StartCoroutine("Shoot");
         StartCoroutine("Stop");
-       
+
     }
     IEnumerator Shoot()
     {
         while (true)
         {
-            GameObject bulletObject1 = Instantiate(Bullet, new Vector3(transform.position.x - 1.0f, transform.position.y, transform.position.z),Quaternion.identity);
+            audioPlay.clip = shootAudio;
+            audioPlay.volume = 0.3f;
+            audioPlay.Play();
+            GameObject bulletObject1 = Instantiate(Bullet, new Vector3(transform.position.x - 1.0f, transform.position.y, transform.position.z), Quaternion.identity);
             bulletObject1.GetComponent<Bullet>().Move();
             GameObject bulletObject2 = Instantiate(Bullet, transform.position, Quaternion.identity);
             bulletObject2.GetComponent<Bullet>().Move();
@@ -179,9 +180,8 @@ public class Boss_Fighter : Basic_Fighter
 
             yield return new WaitForSeconds(BulletSpeed);
         }
-        
+
     }
-  
     IEnumerator Stop()
     {
         yield return new WaitForSeconds(stateChange);
@@ -190,29 +190,23 @@ public class Boss_Fighter : Basic_Fighter
         StopCoroutine("Spawn");
         StopCoroutine("HomingMissile");
     }
-    private void RushPattern()
+    private void HomingMissilePattern()
     {
-        parts[4].SetActive(true);
-        
-        StartCoroutine("Rush");
+        StartCoroutine("HomingMissile");
+        StartCoroutine("Stop");
+        //StartCoroutine(Stop());
     }
-    IEnumerator Rush()
+    IEnumerator HomingMissile()
     {
-        yield return new WaitForSeconds(2f);
-        isRush = true;
-        parts[5].SetActive(true);
-        StartCoroutine("RushStop");
+        while (true)
+        {
+            audioPlay.clip = shootAudio;
+            audioPlay.volume = 0.3f;
+            audioPlay.Play();
+            Instantiate(HomingMissileBullet, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(HomingSpeed);
+        }
     }
-    IEnumerator RushStop()
-    {
-        yield return new WaitForSeconds(2f);
-        isRush = false;
-        isRushStop = true;
-        parts[4].SetActive(false);
-        parts[5].SetActive(false);
-        StartCoroutine("BoolRushStop");
-    }
-
     private void SpawnPattern()
     {
         StartCoroutine("Spawn");
@@ -243,20 +237,37 @@ public class Boss_Fighter : Basic_Fighter
             yield return new WaitForSeconds(LazerSpeed);
         }
     }
-    private void HomingMissilePattern()
+    private void RushPattern()
     {
-        StartCoroutine("HomingMissile");
-        StartCoroutine("Stop");
-        //StartCoroutine(Stop());
+        parts[4].SetActive(true);
+
+        StartCoroutine("Rush");
     }
-    IEnumerator HomingMissile()
+    IEnumerator Rush()
     {
-        while (true)
-        {
-            Instantiate(HomingMissileBullet,transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(HomingSpeed);
-        }
+        yield return new WaitForSeconds(2f);
+        audioPlay.clip = rushAudio;
+        audioPlay.volume = 1.0f;
+        audioPlay.Play();
+        isRush = true;
+        parts[5].SetActive(true);
+        StartCoroutine("RushStop");
     }
+    IEnumerator RushStop()
+    {
+        yield return new WaitForSeconds(2f);
+        isRush = false;
+        isRushStop = true;
+        parts[4].SetActive(false);
+        parts[5].SetActive(false);
+        StartCoroutine("BoolRushStop");
+    }
+    IEnumerator BoolRushStop()
+    {
+        yield return new WaitForSeconds(2f);
+        isRushStop = false;
 
-
+    }
+   
+ 
 }

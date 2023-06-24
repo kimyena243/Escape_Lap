@@ -6,9 +6,12 @@ public class Parts : MonoBehaviour
 {
     [SerializeField] private float Hp;
      private string objectName;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+       
         objectName = gameObject.name;
     }
 
@@ -17,10 +20,12 @@ public class Parts : MonoBehaviour
     {
        if(Hp==0)
         {
+           
             gameObject.SetActive(false);
         }
        if(objectName == "Boss_D" && gameObject.activeSelf == false) // 마지막 파츠 없어질때 (승리 조건)
         {
+            
             Destroy(transform.parent.gameObject);
         }
     }

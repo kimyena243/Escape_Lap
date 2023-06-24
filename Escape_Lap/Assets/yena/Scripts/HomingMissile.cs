@@ -14,7 +14,7 @@ public class HomingMissile : MonoBehaviour
     }
     IEnumerator Delete()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
         Destroy(this.gameObject);
     }
         private void Update()

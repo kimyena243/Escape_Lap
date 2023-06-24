@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: stateChange
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3391655901384318296, guid: acb9665540e57b64db600c1bc4eb9a05, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5594643359704221395, guid: acb9665540e57b64db600c1bc4eb9a05, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -273,7 +277,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &921828570 stripped
 Transform:
@@ -396,7 +400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8468196341972302513, guid: 93f00f9a806f43b4795d062f8a3bf75e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8468196341972302513, guid: 93f00f9a806f43b4795d062f8a3bf75e, type: 3}
       propertyPath: m_LocalPosition.x

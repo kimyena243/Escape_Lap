@@ -9,9 +9,13 @@ public class StunCircle : MonoBehaviour
     private float fadeDuration = 1.0f;
     [SerializeField] private AnimationCurve fadeCurve;
     private int repeatCount = 3;
-
+    [SerializeField] private AudioClip stunAudio;
+    [SerializeField] private AudioClip alarmAudio;
+    
+    private AudioSource audioPlay;
     private void Start()
     {
+        audioPlay = GetComponent<AudioSource>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         circleCollider = gameObject.GetComponent<CircleCollider2D>();
         StartCoroutine(FadeInOut());
@@ -23,6 +27,8 @@ public class StunCircle : MonoBehaviour
     {
         for (int i = 0; i < repeatCount; i++)
         {
+            audioPlay.clip = alarmAudio;
+            audioPlay.Play();
             float elapsedTime = 0f;
             Color startColor = spriteRenderer.color;
             Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0.4f);
@@ -66,8 +72,10 @@ public class StunCircle : MonoBehaviour
             yield return new WaitForSecondsRealtime(1.0f); // 1초 대기
             
         }
-
+        
         circleCollider.enabled = true; //콜라이더 활성화
+        audioPlay.clip = stunAudio;
+        audioPlay.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
