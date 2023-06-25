@@ -8,6 +8,8 @@ TagManager:
   - BackGround
   - BackGround2
   - PlayerBullet
+  - PlayerPBullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
