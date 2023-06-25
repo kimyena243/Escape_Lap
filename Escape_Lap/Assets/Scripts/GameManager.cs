@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
             HP -= Time.deltaTime * 5;
         }
 
-        if (MapMove.GoalCount >= 10 && !Boss)
+        if (MapMove.GoalCount >= 3 && !Boss)
         {
             SceneManager.LoadScene(StageWin);
         }
@@ -42,22 +42,26 @@ public class GameManager : MonoBehaviour
 
     public void ContinueBtn()
     {
+        Time.timeScale = 1f;
         Invoke("Continue", 1.0f);
     }
 
     public void GiveUpBtn()
     {
+        Time.timeScale = 1f;
         Invoke("GiveUp", 1.0f);
     }
 
     private void Continue()
     {
+        
         pauseUI.SetActive(false);
         Playing = true;
     }
 
     private void GiveUp()
     {
+        
         SceneManager.LoadScene("StartScene");
     }
 
@@ -69,11 +73,14 @@ public class GameManager : MonoBehaviour
             {
                 pauseUI.SetActive(false);
                 Playing = true;
+                Time.timeScale = 1f;
+
             }
             else
             {
                 pauseUI.SetActive(true);
                 Playing = false;
+                Time.timeScale = 0f;
             }
         }
     }

@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     Rigidbody2D rd;
     public float Speed;
     private float screenX = 3.0f; 
-    private float screenY = 5.0f; 
+    private float screenY = 8.0f; 
 
     public void Move()
     {

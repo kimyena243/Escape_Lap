@@ -44,18 +44,19 @@ public class Basic_Fighter : MonoBehaviour
         {
             sr.sprite = image[2];
         }
+        
         Move();
         ShootStart();
-
+        
 
     }
 
     // Update is called once per frame
     virtual public void Update()
     {
-        Delete();
-        Die();
-
+         Delete();
+         Die();
+        
     }
 
     virtual public void Move() // 기본 이동 위-> 아래
@@ -70,13 +71,15 @@ public class Basic_Fighter : MonoBehaviour
     }
     IEnumerator Shoot()
     {
-        while (true)
-        {
-            GameObject bulletObject = Instantiate(Bullet, tr);
-            bulletObject.GetComponent<Bullet>().Move();
+       
+            while (true)
+            {
+                GameObject bulletObject = Instantiate(Bullet, tr);
+                bulletObject.GetComponent<Bullet>().Move();
 
-            yield return new WaitForSeconds(BulletSpeed);
-        }
+                yield return new WaitForSeconds(BulletSpeed);
+            }
+        
     }
 
     protected void ItemDrop()

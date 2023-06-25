@@ -90,7 +90,7 @@ public class PlayerAttack : MonoBehaviour
         {
             ItemProgress[0].SetActive(true);
             Shadow[0].fillAmount = delayTime[0];
-            delayTime[0] += 0.0001f;
+            delayTime[0] += 0.001f;
         }
         else
         {
@@ -101,7 +101,7 @@ public class PlayerAttack : MonoBehaviour
         {
             ItemProgress[1].SetActive(true);
             Shadow[1].fillAmount = delayTime[1];
-            delayTime[1] += 0.0001f;
+            delayTime[1] += 0.001f;
         }
         else
         {
